@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcf78j8mh5fw6"]
+
+[ext_resource type="Material" uid="uid://c8rb2i1qbug5k" path="res://Env/PurpGrid.tres" id="1_wrjvj"]
+[ext_resource type="Material" uid="uid://bg62vc8qx1t5s" path="res://Env/OrangeGrid.tres" id="2_343gn"]
+[ext_resource type="PackedScene" uid="uid://ha7n5qqp8mnd" path="res://Portal/Instances/portal.tscn" id="3_f63fu"]
+[ext_resource type="PackedScene" uid="uid://dwciawwgwc1ca" path="res://Env/player.tscn" id="4_4xf0g"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_unkl8"]
+energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_n75uq"]
+sky_material = SubResource("PhysicalSkyMaterial_unkl8")
+
+[sub_resource type="Environment" id="Environment_ol0u5"]
+background_mode = 2
+sky = SubResource("Sky_n75uq")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7353o"]
+
+[node name="Base" type="Node3D"]
+
+[node name="PurpRoom" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59238, -10)
+use_collision = true
+size = Vector3(20, 3.95611, 20)
+material = ExtResource("1_wrjvj")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="PurpRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48779, 0)
+operation = 2
+size = Vector3(18, 5.47559, 18)
+material = ExtResource("1_wrjvj")
+
+[node name="OrangeRoom" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59238, 10)
+use_collision = true
+size = Vector3(20, 3.95611, 20)
+material = ExtResource("2_343gn")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="OrangeRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48779, 0)
+operation = 2
+size = Vector3(18, 5.47559, 18)
+material = ExtResource("2_343gn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ol0u5")
+camera_attributes = SubResource("CameraAttributesPractical_7353o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.901365, -0.0418128, 0.431037, -0.311506, -0.754041, 0.578262, 0.300841, -0.655496, -0.692691, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Portal" parent="." node_paths=PackedStringArray("paired") instance=ExtResource("3_f63fu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15757, 1.34002, 7.08572)
+paired = NodePath("../Portal2")
+
+[node name="Portal2" parent="." node_paths=PackedStringArray("paired") instance=ExtResource("3_f63fu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.78869, 1.33351, -11.1143)
+paired = NodePath("../Portal")
+
+[node name="Player" parent="." instance=ExtResource("4_4xf0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03625, 2, 11.6357)

@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg2mi3hyw3mw4"]
+
+[ext_resource type="PackedScene" uid="uid://dlamexiyycw51" path="res://Portal/Assets/Meshes/PortalAsset.fbx" id="1_voxkl"]
+[ext_resource type="Material" uid="uid://c452s35875obk" path="res://Portal/Assets/Mats/Brass.tres" id="2_w7tp3"]
+[ext_resource type="Material" uid="uid://r48bcq06q2gf" path="res://Portal/Assets/Mats/Plastic.tres" id="3_japxx"]
+[ext_resource type="Shader" path="res://Portal/Scripts/Shaders/portal.gdshader" id="4_a1xwt"]
+[ext_resource type="Script" path="res://Portal/Scripts/Behaviors/PortalVis.gd" id="5_jrplg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6gfh"]
+render_priority = 0
+shader = ExtResource("4_a1xwt")
+
+[node name="PortalAsset" instance=ExtResource("1_voxkl")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="BézierCurve" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_w7tp3")
+
+[node name="Cone" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_w7tp3")
+
+[node name="Frame" parent="." index="2"]
+surface_material_override/0 = ExtResource("3_japxx")
+
+[node name="Plane" parent="." index="3"]
+layers = 2
+surface_material_override/0 = SubResource("ShaderMaterial_d6gfh")
+script = ExtResource("5_jrplg")
