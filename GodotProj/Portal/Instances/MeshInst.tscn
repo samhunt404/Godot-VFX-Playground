@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dlamexiyycw51" path="res://Portal/Assets/Meshes/PortalAsset.fbx" id="1_voxkl"]
 [ext_resource type="Material" uid="uid://c452s35875obk" path="res://Portal/Assets/Mats/Brass.tres" id="2_w7tp3"]
 [ext_resource type="Material" uid="uid://r48bcq06q2gf" path="res://Portal/Assets/Mats/Plastic.tres" id="3_japxx"]
-[ext_resource type="Shader" path="res://Portal/Scripts/Shaders/portal.gdshader" id="4_a1xwt"]
-[ext_resource type="Script" path="res://Portal/Scripts/Behaviors/PortalVis.gd" id="5_jrplg"]
+[ext_resource type="Shader" uid="uid://c0m4sx3ikxu5e" path="res://Portal/Scripts/Shaders/portal.gdshader" id="4_a1xwt"]
+[ext_resource type="Script" uid="uid://d1gwgmkh6b7y7" path="res://Portal/Scripts/Behaviors/PortalVis.gd" id="5_jrplg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d6gfh"]
 render_priority = 0
