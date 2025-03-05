@@ -1,28 +1,58 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg2mi3hyw3mw4"]
+[gd_scene load_steps=13 format=3 uid="uid://bg2mi3hyw3mw4"]
 
 [ext_resource type="PackedScene" uid="uid://dlamexiyycw51" path="res://Portal/Assets/Meshes/PortalAsset.fbx" id="1_voxkl"]
-[ext_resource type="Material" uid="uid://c452s35875obk" path="res://Portal/Assets/Mats/Brass.tres" id="2_w7tp3"]
-[ext_resource type="Material" uid="uid://r48bcq06q2gf" path="res://Portal/Assets/Mats/Plastic.tres" id="3_japxx"]
+[ext_resource type="Texture2D" uid="uid://4luuk4241xli" path="res://Portal/Assets/Textures/Portal_Diff.png" id="2_fm7fg"]
+[ext_resource type="Texture2D" uid="uid://c1j8a4rittvoq" path="res://Portal/Assets/Textures/Portal_met.png" id="3_2tdc7"]
+[ext_resource type="Texture2D" uid="uid://bkjp0qo5wjofx" path="res://Portal/Assets/Mats/128CRT.png" id="3_hevq2"]
 [ext_resource type="Shader" uid="uid://c0m4sx3ikxu5e" path="res://Portal/Scripts/Shaders/portal.gdshader" id="4_a1xwt"]
+[ext_resource type="Texture2D" uid="uid://biwfv3800yx0" path="res://Portal/Assets/Textures/Portal_rough.png" id="4_uctep"]
 [ext_resource type="Script" uid="uid://d1gwgmkh6b7y7" path="res://Portal/Scripts/Behaviors/PortalVis.gd" id="5_jrplg"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0aujc"]
+albedo_texture = ExtResource("2_fm7fg")
+metallic = 1.0
+metallic_texture = ExtResource("3_2tdc7")
+roughness_texture = ExtResource("4_uctep")
+
+[sub_resource type="Gradient" id="Gradient_ticra"]
+offsets = PackedFloat32Array(0.329154, 0.576802)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mhgen"]
+frequency = 0.1254
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fm7fg"]
+color_ramp = SubResource("Gradient_ticra")
+noise = SubResource("FastNoiseLite_mhgen")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d6gfh"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("4_a1xwt")
+shader_parameter/CRTTex = ExtResource("3_hevq2")
+shader_parameter/static = SubResource("NoiseTexture2D_fm7fg")
 
 [node name="PortalAsset" instance=ExtResource("1_voxkl")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
-[node name="BézierCurve" parent="." index="0"]
-surface_material_override/0 = ExtResource("2_w7tp3")
-
-[node name="Cone" parent="." index="1"]
-surface_material_override/0 = ExtResource("2_w7tp3")
-
-[node name="Frame" parent="." index="2"]
-surface_material_override/0 = ExtResource("3_japxx")
-
-[node name="Plane" parent="." index="3"]
+[node name="Monitors" parent="." index="0"]
 layers = 2
+cast_shadow = 0
+surface_material_override/0 = SubResource("StandardMaterial3D_0aujc")
+
+[node name="Plane" parent="." index="1"]
+layers = 2
+cast_shadow = 0
 surface_material_override/0 = SubResource("ShaderMaterial_d6gfh")
 script = ExtResource("5_jrplg")
+
+[node name="PortalAsset" parent="." index="2" instance=ExtResource("1_voxkl")]
+
+[node name="Monitors" parent="PortalAsset" index="0"]
+layers = 3
+cast_shadow = 3
+
+[node name="Plane" parent="PortalAsset" index="1"]
+layers = 3
+cast_shadow = 3
+
+[editable path="PortalAsset"]

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://du8rv56risrcd"]
+
+[ext_resource type="Shader" uid="uid://cdhsqscgbqybs" path="res://Env/Grid.gdshader" id="1_75epl"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_75epl")
+shader_parameter/base = Color(0.513233, 0.513233, 0.513233, 1)
+shader_parameter/gridCol = Color(0, 0, 0, 1)
