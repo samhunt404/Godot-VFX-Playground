@@ -33,6 +33,11 @@ operation = 2
 size = Vector3(18, 5.47559, 18)
 material = ExtResource("1_wrjvj")
 
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="PurpRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40762, 0)
+size = Vector3(22, 6, 22)
+box_projection = true
+
 [node name="PurpRoom2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0001, 1.60076, 2.32458e-06)
 use_collision = true
@@ -57,6 +62,11 @@ operation = 2
 size = Vector3(18, 5.47559, 18)
 material = ExtResource("2_343gn")
 
+[node name="ReflectionProbe" type="ReflectionProbe" parent="OrangeRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40762, 1)
+size = Vector3(22, 6, 22)
+box_projection = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ol0u5")
 camera_attributes = SubResource("CameraAttributesPractical_7353o")
@@ -66,7 +76,7 @@ transform = Transform3D(0.901365, -0.0418128, 0.431037, -0.311506, -0.754041, 0.
 shadow_enabled = true
 
 [node name="Portal" parent="." node_paths=PackedStringArray("paired") instance=ExtResource("3_f63fu")]
-transform = Transform3D(0.785641, 0, -0.618683, 0, 1, 0, 0.618683, 0, 0.785641, 2.15757, 1.34002, 7.08572)
+transform = Transform3D(-0.364568, 0, 0.931177, 0, 1, 0, -0.931177, 0, -0.364568, 1.59676, 1.34002, 7.73376)
 paired = NodePath("../Portal2")
 
 [node name="Portal2" parent="." node_paths=PackedStringArray("paired") instance=ExtResource("3_f63fu")]
@@ -75,13 +85,3 @@ paired = NodePath("../Portal")
 
 [node name="Player" parent="." instance=ExtResource("4_4xf0g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15953, 2, 7.41161)
-
-[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 11)
-size = Vector3(22, 6, 22)
-box_projection = true
-
-[node name="ReflectionProbe2" type="ReflectionProbe" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
-size = Vector3(22, 6, 22)
-box_projection = true
