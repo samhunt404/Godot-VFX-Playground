@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcf78j8mh5fw6"]
+[gd_scene load_steps=12 format=3 uid="uid://bcf78j8mh5fw6"]
 
 [ext_resource type="Material" uid="uid://c8rb2i1qbug5k" path="res://Env/PurpGrid.tres" id="1_wrjvj"]
 [ext_resource type="Material" uid="uid://du8rv56risrcd" path="res://Env/GrayGrid.tres" id="2_21bcp"]
 [ext_resource type="Material" uid="uid://bg62vc8qx1t5s" path="res://Env/OrangeGrid.tres" id="2_343gn"]
 [ext_resource type="PackedScene" uid="uid://ha7n5qqp8mnd" path="res://Portal/Instances/portal.tscn" id="3_f63fu"]
 [ext_resource type="PackedScene" uid="uid://dwciawwgwc1ca" path="res://Env/player.tscn" id="4_4xf0g"]
+[ext_resource type="PackedScene" uid="uid://bmxapw6hghkpc" path="res://VATs/Assets/Meshes/vertex_animation_textures1_mesh.fbx" id="6_tpea4"]
+[ext_resource type="Material" uid="uid://bwu5kurjl6b1d" path="res://VATs/Assets/Mats/VatMat.tres" id="7_42dj3"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_unkl8"]
 energy_multiplier = 2.0
@@ -85,3 +87,11 @@ box_projection = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
 size = Vector3(22, 6, 22)
 box_projection = true
+
+[node name="vertex_animation_textures1_mesh" parent="." instance=ExtResource("6_tpea4")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -18.6429, 1.55175, -1.8054)
+
+[node name="MESH" parent="vertex_animation_textures1_mesh" index="0"]
+surface_material_override/0 = ExtResource("7_42dj3")
+
+[editable path="vertex_animation_textures1_mesh"]

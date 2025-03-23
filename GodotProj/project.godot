@@ -30,7 +30,11 @@ folder_colors={
 "res://Portal/Assets/": "yellow",
 "res://Portal/Instances/": "purple",
 "res://Portal/Scripts/": "red",
-"res://Portal/Scripts/Shaders/": "orange"
+"res://Portal/Scripts/Shaders/": "orange",
+"res://VATs/Assets/": "yellow",
+"res://VATs/Instances/": "purple",
+"res://VATs/Scripts/": "red",
+"res://VATs/Scripts/Shaders/": "orange"
 }
 
 [input]
