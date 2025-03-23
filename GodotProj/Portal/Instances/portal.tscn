@@ -4,12 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://bg2mi3hyw3mw4" path="res://Portal/Instances/MeshInst.tscn" id="2_jy6pe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n8005"]
-size = Vector3(1.5, 3, 0.25)
+size = Vector3(0.901306, 1.92957, 0.25)
 
 [node name="Portal" type="Node3D"]
 script = ExtResource("1_l70gx")
 
 [node name="PortalAsset" parent="." instance=ExtResource("2_jy6pe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0591726)
 
 [node name="Renderer" type="SubViewport" parent="."]
 
@@ -21,9 +22,10 @@ remote_path = NodePath("../Renderer/Camera3D")
 update_scale = false
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0591726)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0157776, 0.964783, 0)
 shape = SubResource("BoxShape3D_n8005")
 
 [connection signal="body_entered" from="Area3D" to="." method="_teleport_obj"]
