@@ -1,13 +1,15 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bwu5kurjl6b1d"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bwu5kurjl6b1d"]
 
 [ext_resource type="Shader" uid="uid://r0fa56er185n" path="res://VATs/Scripts/Shaders/VAT.gdshader" id="1_7isdw"]
 [ext_resource type="Texture2D" uid="uid://7moasc684ek7" path="res://VATs/Assets/Textures/vertex_animation_textures1_lookup.png" id="2_fev17"]
 [ext_resource type="Texture2D" uid="uid://cpxgp4d747qx1" path="res://VATs/Assets/Textures/vertex_animation_textures1_pos.exr" id="3_0nmbc"]
+[ext_resource type="Texture2D" uid="uid://dfw5sqcu75ewr" path="res://VATs/Assets/Textures/vertex_animation_textures1_rot.exr" id="4_fev17"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_7isdw")
 shader_parameter/lookup = ExtResource("2_fev17")
 shader_parameter/pos = ExtResource("3_0nmbc")
+shader_parameter/rot = ExtResource("4_fev17")
 shader_parameter/currentFrame = 0
-shader_parameter/frameCount = 30
+shader_parameter/frameRate = 30

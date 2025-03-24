@@ -1,11 +1,11 @@
 shader_type spatial;
 
-uniform sampler2D lookup;
-uniform sampler2D pos;
-uniform sampler2D rot;
+uniform sampler2D lookup : filter_nearest;
+uniform sampler2D pos : filter_nearest;
+uniform sampler2D rot : filter_nearest;
 
-uniform int currentFrame = 5;
-uniform int frameCount = 30;
+uniform int currentFrame = 0;
+uniform int frameRate = 30;
 
 const int offset = 144; //hard found
 void vertex()
@@ -17,7 +17,7 @@ void vertex()
 	vec3 normSample = textureLod(rot,lookupVal.xy,0.0).rgb;
 	vec3 posSample = textureLod(pos,lookupVal.xy,0.0).rgb;
 	
-	VERTEX = posSample * 0.0001;
+	VERTEX = posSample * 0.01;
 	NORMAL = normSample;
 	
 }
